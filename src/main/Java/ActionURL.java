@@ -15,18 +15,17 @@ import java.nio.charset.StandardCharsets;
 public class ActionURL extends AnAction {
     @Override
     public void actionPerformed(@NotNull AnActionEvent event) {
-        Messages.showMessageDialog("Hello!", "its me", Messages.getInformationIcon());
+        // Messages.showMessageDialog("Hello!", "its me", Messages.getInformationIcon());
         Editor editor = event.getData(PlatformDataKeys.EDITOR);
         String selectedText = editor.getSelectionModel().getSelectedText();
         if (selectedText != null) {
             String encoded = "";
             try {
                 encoded = URLEncoder.encode(selectedText, StandardCharsets.UTF_8.toString());
-
             } catch (UnsupportedEncodingException e) {
                 throw new RuntimeException(e);
             }
-            String url = String.format("https://www.google.com/search?q=", encoded);
+            String url = "https://www.google.com/search?q=" + encoded + "&sourceid=chrome&ie=UTF-8";
             BrowserUtil.browse(url);
         } else {
             Messages.showMessageDialog("Please, select some text", "Googling Plugin", Messages.getInformationIcon());
