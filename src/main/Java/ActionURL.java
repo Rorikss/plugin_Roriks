@@ -25,10 +25,10 @@ public class ActionURL extends AnAction {
             } catch (UnsupportedEncodingException e) {
                 throw new RuntimeException(e);
             }
-            String url = "https://www.google.com/search?q=" + encoded + "&sourceid=chrome&ie=UTF-8";
+            String url = "https://www.phind.com/search?q=" + encoded + "&source=searchbox";
             BrowserUtil.browse(url);
         } else {
-            Messages.showMessageDialog("Please, select some text", "Googling Plugin", Messages.getInformationIcon());
+            Messages.showMessageDialog("Please, select some text", "AskGPT Plugin", Messages.getInformationIcon());
         }
 
 
